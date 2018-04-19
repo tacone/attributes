@@ -1,0 +1,24 @@
+{
+    "name": "attributes/attributes",
+    "description": "Helps you implement fluent builders",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tacone",
+            "email": "known-only@to.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Attributes\\": "src/",
+            "Attributes\\Test\\": "tests/"
+        },
+        "files": []
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable",
+        "petrp/access": "^0.2.2"
+    },
+    "prefer-stable" : true,
+    "minimum-stability": "dev"
+}
