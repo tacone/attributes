@@ -15,6 +15,9 @@
         },
         "files": []
     },
+    "require": {
+        "php": "^7.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "@stable"
     },
