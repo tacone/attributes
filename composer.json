@@ -16,8 +16,7 @@
         "files": []
     },
     "require-dev": {
-        "phpunit/phpunit": "@stable",
-        "petrp/access": "^0.2.2"
+        "phpunit/phpunit": "@stable"
     },
     "prefer-stable" : true,
     "minimum-stability": "dev"
