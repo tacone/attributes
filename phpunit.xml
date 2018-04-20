@@ -18,19 +18,11 @@
         </testsuite>
     </testsuites>
 
-    <!-- Add our custom listener -->
-    <!-- *** FUCK YOU, PHPUnit -->
-    <!--<listeners>-->
-        <!--<listener class="\Pipes\Test\TestCase\TestListener">-->
-        <!--</listener>-->
-    <!--</listeners>-->
-
-    <!-- Add a filter to make sure we don't count venders and Tests in the coverage report -->
+    <!-- Add a filter to make sure we don't count vendors and Tests in the coverage report -->
     <filter>
         <whitelist>
             <directory suffix="Test.php">./src</directory>
             <exclude>
-                <directory>./docs</directory>
                 <directory>./vendor</directory>
                 <directory>./tests</directory>
             </exclude>
