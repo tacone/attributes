@@ -1,5 +1,5 @@
 {
-    "name": "attributes/attributes",
+    "name": "tacone/attributes",
     "description": "Helps you implement fluent builders",
     "license": "MIT",
     "authors": [

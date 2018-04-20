@@ -10,7 +10,7 @@ fluent interface.
 ## Installation
 
 ```shell
-composer require attributes/attributes
+composer require tacone/attributes
 ```
 
 ## Usage
