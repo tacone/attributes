@@ -3,11 +3,14 @@ Attributes.php
 [![Build Status](https://travis-ci.org/tacone/attributes.svg)](https://travis-ci.org/tacone/attributes)
 [![Coverage Status](https://img.shields.io/coveralls/tacone/attributes.svg)](https://coveralls.io/r/tacone/attributes)
 
+# WORK IN PROGRESS | DON'T USE!
+
 Attributes is a tiny library that helps you implement easily the Builder pattern with a
 fluent interface.
 
-
 ## Installation
+
+You will need PHP 7.0 or above.
 
 ```shell
 composer require tacone/attributes
