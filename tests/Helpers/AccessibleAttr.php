@@ -6,8 +6,8 @@ use Attributes\Attr;
 
 class AccessibleAttr extends Attr
 {
-    public static function parseArgs(array &$storage, string $path = null, $return)
+    public static function parseArgs($numArgs, array &$storage = null, string $path = null, $return = null)
     {
-        return parent::parseArgs($storage, $path, $return);
+        return parent::parseArgs($numArgs, $storage, $path, $return);
     }
 }

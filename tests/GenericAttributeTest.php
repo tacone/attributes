@@ -3,24 +3,46 @@
 namespace Attributes\Test;
 
 use Attributes\Attr;
-use Attributes\Types\GenericAttribute;
-use Attributes\Types\StringAttribute;
 
 class GenericAttributeTest extends BaseTestCase
 {
     protected $data = [];
+    public $publicData = [];
 
     public function setUp()
     {
         $this->data = [];
+        $this->publicData = [];
+    }
+
+    public function testGetterWithImplicitProtectedTarget()
+    {
+        // test default property name on a protected member
+        $attribute = Attr::generic();
+        $object = $attribute->handle('hello1');
+
+        assertSame('hello1', $this->data[__FUNCTION__]);
+        assertSame($this, $object);
+    }
+
+    public function testGetterWithtImplicitPublicTarget()
+    {
+        // test default property name on a protected member
+        Attr::$defaultTargetPropertyName = 'publicData';
+        $attribute = Attr::generic();
+        $object = $attribute->handle('hello2');
+
+        assertSame('hello2', $this->publicData[__FUNCTION__]);
+        assertSame($this, $object);
     }
 
     public function testGetter()
     {
+        // test passing target explicitely
         $attribute = Attr::generic($this->data);
-        $object = $attribute->handle('hello');
+        $object = $attribute->handle('hello3');
 
-        assertSame('hello', $this->data[__FUNCTION__]);
+        assertSame('hello3', $this->data[__FUNCTION__]);
         assertSame($this, $object);
     }
 
@@ -31,8 +53,9 @@ class GenericAttributeTest extends BaseTestCase
 
         assertNull($value);
 
-        $attribute->handle('hello');
-        assertSame('hello', $attribute->handle());
-        assertSame('hello', $this->data[__FUNCTION__]);
+        $attribute->handle('hello3');
+        assertSame('hello3', $attribute->handle());
+        assertSame('hello3', $this->data[__FUNCTION__]);
+
     }
 }

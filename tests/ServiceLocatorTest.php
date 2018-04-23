@@ -20,7 +20,7 @@ class ServiceLocatorTest extends BaseTestCase
     {
         $attr = new AccessibleAttr();
 
-        $result = $attr->parseArgs($this->data, null, null);
+        $result = $attr->parseArgs(1, $this->data, null, null);
         assertCount(3, $result);
 
         assertSame($this->data, $result[0]);

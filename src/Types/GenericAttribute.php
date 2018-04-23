@@ -26,9 +26,12 @@ class GenericAttribute
         return $instance;
     }
 
+    /**
+     * @param $value
+     * @return static|integer|float|null|resource|object|array|string
+     */
     public function handle($value = null)
     {
-
         if (!func_num_args()) {
             return $this->get();
         }
@@ -46,5 +49,5 @@ class GenericAttribute
     protected function get()
     {
         return isset($this->target[$this->path]) ? $this->target[$this->path] : null;
-}
+    }
 }

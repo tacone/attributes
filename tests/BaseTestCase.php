@@ -2,6 +2,7 @@
 
 namespace Attributes\Test;
 
+use Attributes\Types\StringAttribute;
 use PHPUnit\Framework\TestCase;
 
 class BaseTestCase extends TestCase
@@ -15,5 +16,6 @@ class BaseTestCase extends TestCase
         error_reporting(-1);
         parent::__construct($name, $data, $dataName);
     }
+
 
 }
