@@ -136,7 +136,7 @@ $item = new Record();
 ```
 
 In the following example, '$item->name()' will return `$item->values['firstName']`. `$item->name('something')`
-will return `$object`;
+will return `$object`.
 
 ### The handle method
 
