@@ -30,13 +30,18 @@ class GenericAttribute
      * @param $value
      * @return static|integer|float|null|resource|object|array|string
      */
-    public function handle($value = null)
+    public function handle(array $arguments = [])
     {
         if (!func_num_args()) {
+            $trace = debug_backtrace();
+            $arguments = $trace[1]['args'];
+        }
+
+        if (!count($arguments)) {
             return $this->get();
         }
 
-        $this->set($value);
+        $this->set($arguments[0]);
 
         return $this->return;
     }

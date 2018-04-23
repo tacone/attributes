@@ -26,11 +26,14 @@ class Person {
     protected $data;
     
     public function name ($value = null) {
+        // you don't need to really pass the argument to handle()
         return Attr::string($this->data)->handle();
     }
     
     public function age ($value = null) {
-        return Attr::string($this->data)->handle();
+        // if you wish to pass the arguments manually you have to do so by passing
+        // it as an arguments array
+        return Attr::string($this->data)->handle(func_get_args());
     }
 
 }
