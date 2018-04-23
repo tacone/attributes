@@ -33,7 +33,6 @@ class GenericAttributeTest extends BaseTestCase
         $object = $attribute->handle(['hello2']);
         Attr::$defaultTargetPropertyName = 'data'; //important
 
-
         assertSame('hello2', $this->publicData[__FUNCTION__]);
         assertSame($this, $object);
     }
