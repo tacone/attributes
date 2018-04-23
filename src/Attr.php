@@ -78,13 +78,14 @@ class Attr
         return [&$storage, $path, $return];
     }
 
-    public static function getCallingTrace()
+    public static function getCallingTrace(array $fakeStackTrace = [])
     {
         $callingTrace = null;
+        $stackTrace = func_num_args() ? $fakeStackTrace : debug_backtrace();
 
-        foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS | DEBUG_BACKTRACE_PROVIDE_OBJECT) as $item) {
+        foreach ($stackTrace as $item) {
             // should not be this class or a subclass
-            if ($item['class'] != static::class && $item['class'] != self::class) {
+            if (!empty($item['class']) && $item['class'] != static::class && $item['class'] != self::class) {
                 $callingTrace = $item;
                 break;
             }
@@ -96,4 +97,5 @@ class Attr
 
         return $callingTrace;
     }
+
 }

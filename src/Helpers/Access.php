@@ -24,8 +24,15 @@ class Access
         if (isset($object->$property)) {
             return $object->$property;
         }
-        $accessorClass = static::getProxy($object);
+        $proxy = static::getProxy($object);
 
-        return $accessorClass::___getPropertyReference($object, $property);
+        return $proxy::___getPropertyReference($object, $property);
     }
+
+//    public static function callMethod($object, $method, $arguments)
+//    {
+//        $proxy = static::getProxy($object);
+//
+//        return $proxy->$method(...$arguments);
+//    }
 }

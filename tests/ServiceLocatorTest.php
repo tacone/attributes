@@ -45,4 +45,21 @@ class ServiceLocatorTest extends BaseTestCase
     {
         assertInstanceOf(StringAttribute::class, Attr::string($this->data));
     }
+
+    public function testNotInObjectContextException()
+    {
+        $this->expectException(\RuntimeException::class);
+        $stackTrace = [
+            [
+                'file' => '/home/stefano/Code/attributes/vendor/composer/ClassLoader.php',
+                'line' => 322,
+                'function' => 'Composer\\Autoload\\includeFile',
+                'args' =>
+                    [
+                        0 => '/home/stefano/Code/attributes/vendor/composer/../../src/Attr.php',
+                    ],
+            ],
+        ];
+        Attr::getCallingTrace($stackTrace);
+    }
 }
