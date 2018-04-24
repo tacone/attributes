@@ -67,7 +67,7 @@ $age = $person->age(); // 21
 
 ## API
 
-Attributes are once-time objects that have the duty to get or set a value in some place.
+Attributes are one-time objects that have the duty to get or set a value in some place.
 
 The most basic type of Attribute is the GenericAttribute: it allows you to get or set any value of whatever type.
 
