@@ -28,11 +28,4 @@ class Access
 
         return $proxy::___getPropertyReference($object, $property);
     }
-
-//    public static function callMethod($object, $method, $arguments)
-//    {
-//        $proxy = static::getProxy($object);
-//
-//        return $proxy->$method(...$arguments);
-//    }
 }
