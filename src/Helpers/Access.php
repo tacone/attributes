@@ -6,7 +6,7 @@ class Access
 {
     public static function getProxy($object)
     {
-        $class = get_class($object);
+        $class         = get_class($object);
         $accessorClass = 'attr' . md5($class);
 
         if (!class_exists($accessorClass)) {
@@ -16,6 +16,7 @@ class Access
                    }
                 }');
         }
+
         return $accessorClass;
     }
 

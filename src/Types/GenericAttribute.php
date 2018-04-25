@@ -2,7 +2,6 @@
 
 namespace Attributes\Types;
 
-
 class GenericAttribute
 {
     protected $target = null;
@@ -13,14 +12,14 @@ class GenericAttribute
      * @param $target
      * @param $path
      * @param $return
+     *
      * @return static
      */
-
     public static function make(&$target, $path, $return)
     {
-        $instance = new static;
-        $instance->target =& $target;
-        $instance->path = $path;
+        $instance         = new static();
+        $instance->target = &$target;
+        $instance->path   = $path;
         $instance->return = $return;
 
         return $instance;
@@ -28,12 +27,13 @@ class GenericAttribute
 
     /**
      * @param $value
-     * @return static|integer|float|null|resource|object|array|string
+     *
+     * @return static|int|float|null|resource|object|array|string
      */
     public function handle(array $arguments = [])
     {
         if (!func_num_args()) {
-            $trace = debug_backtrace();
+            $trace     = debug_backtrace();
             $arguments = $trace[1]['args'];
         }
 

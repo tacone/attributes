@@ -6,12 +6,12 @@ use Attributes\Attr;
 
 class GenericAttributeTest extends BaseTestCase
 {
-    protected $data = [];
+    protected $data    = [];
     public $publicData = [];
 
     public function setUp()
     {
-        $this->data = [];
+        $this->data       = [];
         $this->publicData = [];
     }
 
@@ -19,7 +19,7 @@ class GenericAttributeTest extends BaseTestCase
     {
         // test default property name on a protected member
         $attribute = Attr::generic();
-        $object = $attribute->handle(['hello1']);
+        $object    = $attribute->handle(['hello1']);
 
         assertSame('hello1', $this->data[__FUNCTION__]);
         assertSame($this, $object);
@@ -29,8 +29,8 @@ class GenericAttributeTest extends BaseTestCase
     {
         // test default property name on a protected member
         Attr::$defaultTargetPropertyName = 'publicData';
-        $attribute = Attr::generic();
-        $object = $attribute->handle(['hello2']);
+        $attribute                       = Attr::generic();
+        $object                          = $attribute->handle(['hello2']);
 
         assertSame('hello2', $this->publicData[__FUNCTION__]);
         assertSame($this, $object);
@@ -40,7 +40,7 @@ class GenericAttributeTest extends BaseTestCase
     {
         // test passing target explicitely
         $attribute = Attr::generic($this->data);
-        $object = $attribute->handle(['hello3']);
+        $object    = $attribute->handle(['hello3']);
 
         assertSame('hello3', $this->data[__FUNCTION__]);
         assertSame($this, $object);
@@ -49,6 +49,7 @@ class GenericAttributeTest extends BaseTestCase
     public function fakeAttributeMethod($value = null)
     {
         $attribute = Attr::generic();
+
         return $attribute->handle();
     }
 
@@ -66,7 +67,7 @@ class GenericAttributeTest extends BaseTestCase
     public function testSetter()
     {
         $attribute = Attr::generic($this->data);
-        $value = $attribute->handle([]);
+        $value     = $attribute->handle([]);
 
         assertNull($value);
 

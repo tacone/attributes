@@ -15,6 +15,7 @@ class Attr
      * @param $storage
      * @param null $path
      * @param null $return
+     *
      * @return StringAttribute
      */
     public static function string(&$storage, $path = null, $return = null)
@@ -28,6 +29,7 @@ class Attr
      * @param $storage
      * @param null $path
      * @param null $return
+     *
      * @return GenericAttribute
      */
     public static function generic(&$storage = null, $path = null, $return = null)
@@ -38,16 +40,14 @@ class Attr
     }
 
     /**
-     *
-     *
      * @param $storage
      * @param $path
      * @param $return
+     *
      * @return array
      */
     protected static function parseArgs($numArgs, array &$storage = null, string $path = null, $return = null)
     {
-
         // lets get the invoking object. It will be returned by the mutator methods to as to
         // achieve a fluent interface
 
@@ -71,7 +71,7 @@ class Attr
 
         if ($numArgs < 1) {
             $callingTrace = $callingTrace ?: static::getCallingTrace();
-            $storage =& Access::getPropertyReference($callingTrace['object'], static::$defaultTargetPropertyName);
+            $storage      = &Access::getPropertyReference($callingTrace['object'], static::$defaultTargetPropertyName);
         }
 
         // IMPORTANT: keep the reference!
@@ -81,7 +81,7 @@ class Attr
     public static function getCallingTrace(array $fakeStackTrace = [])
     {
         $callingTrace = null;
-        $stackTrace = func_num_args() ? $fakeStackTrace : debug_backtrace();
+        $stackTrace   = func_num_args() ? $fakeStackTrace : debug_backtrace();
 
         foreach ($stackTrace as $item) {
             // should not be this class or a subclass
@@ -97,5 +97,4 @@ class Attr
 
         return $callingTrace;
     }
-
 }

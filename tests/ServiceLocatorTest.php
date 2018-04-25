@@ -18,12 +18,12 @@ class ServiceLocatorTest extends BaseTestCase
     public function testParseArgs()
     {
         $attr = new class extends Attr
-        {
-            public static function parseArgs($numArgs, array &$storage = null, string $path = null, $return = null)
-            {
-                return parent::parseArgs($numArgs, $storage, $path, $return);
-            }
-        };
+ {
+     public static function parseArgs($numArgs, array &$storage = null, string $path = null, $return = null)
+     {
+         return parent::parseArgs($numArgs, $storage, $path, $return);
+     }
+ };
 
         $result = $attr->parseArgs(1, $this->data, null, null);
         assertCount(3, $result);
@@ -56,11 +56,10 @@ class ServiceLocatorTest extends BaseTestCase
         $this->expectException(\RuntimeException::class);
         $stackTrace = [
             [
-                'file' => '/home/stefano/Code/attributes/vendor/composer/ClassLoader.php',
-                'line' => 322,
+                'file'     => '/home/stefano/Code/attributes/vendor/composer/ClassLoader.php',
+                'line'     => 322,
                 'function' => 'Composer\\Autoload\\includeFile',
-                'args' =>
-                    [
+                'args'     => [
                         0 => '/home/stefano/Code/attributes/vendor/composer/../../src/Attr.php',
                     ],
             ],
