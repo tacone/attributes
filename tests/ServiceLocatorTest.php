@@ -18,11 +18,17 @@ class ServiceLocatorTest extends BaseTestCase
 
     public function testParseArgs()
     {
-        $attr = new AccessibleAttr();
+        $attr = new class extends Attr
+        {
+            public static function parseArgs($numArgs, array &$storage = null, string $path = null, $return = null)
+            {
+                return parent::parseArgs($numArgs, $storage, $path, $return);
+            }
+        };
 
         $result = $attr->parseArgs(1, $this->data, null, null);
         assertCount(3, $result);
-
+ 
         assertSame($this->data, $result[0]);
 
         // test is a reference
