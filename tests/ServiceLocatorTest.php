@@ -3,7 +3,6 @@
 namespace Attributes\Test;
 
 use Attributes\Attr;
-use Attributes\Test\Helpers\AccessibleAttr;
 use Attributes\Types\GenericAttribute;
 use Attributes\Types\StringAttribute;
 
@@ -28,7 +27,7 @@ class ServiceLocatorTest extends BaseTestCase
 
         $result = $attr->parseArgs(1, $this->data, null, null);
         assertCount(3, $result);
- 
+
         assertSame($this->data, $result[0]);
 
         // test is a reference
