@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+It is important to have either backupStaticAttributes or processIsolation set to TRUE
+so as to isolate static members state in each test
+-->
 <phpunit backupGlobals="false"
-         backupStaticAttributes="false"
+         backupStaticAttributes="true"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
